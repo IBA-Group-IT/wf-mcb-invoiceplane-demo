@@ -1,3 +1,3 @@
 # mcb-invoiceplane-demo
 
-MCB project with different Robot samples
+MCB Demo project with different Robot samples (invoiceplane + google search + skype)
