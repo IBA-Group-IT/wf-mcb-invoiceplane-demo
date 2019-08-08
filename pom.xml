@@ -5,12 +5,9 @@
 	<profiles>
 		<profile>
 			<id>wf90</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
-				<intelia.core.version>90.0.6</intelia.core.version>
-				<intelia.systems.invoiceplane.version>90.0.2</intelia.systems.invoiceplane.version>
+				<intelia.core.version>90.0.10</intelia.core.version>
+				<intelia.systems.invoiceplane.version>90.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>90.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>90.0.1</intelia.systems.skype.version>
 			</properties>
@@ -19,8 +16,8 @@
 		<profile>
 			<id>wf91</id>
 			<properties>
-				<intelia.core.version>91.0.6</intelia.core.version>
-				<intelia.systems.invoiceplane.version>91.0.2</intelia.systems.invoiceplane.version>
+				<intelia.core.version>91.0.10</intelia.core.version>
+				<intelia.systems.invoiceplane.version>91.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>91.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>91.0.1</intelia.systems.skype.version>
 			</properties>
@@ -28,19 +25,23 @@
 
 		<profile>
 			<id>wf92</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
-				<intelia.core.version>92.0.6</intelia.core.version>
-				<intelia.systems.invoiceplane.version>92.0.2</intelia.systems.invoiceplane.version>
+				<intelia.core.version>92.0.10</intelia.core.version>
+				<intelia.systems.invoiceplane.version>92.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>92.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>92.0.1</intelia.systems.skype.version>
+				<workfusion.version>9.2.0.3</workfusion.version>
 			</properties>
 		</profile>
 
 		<profile>
 			<id>wf93</id>
 			<properties>
-				<intelia.core.version>93.0.6</intelia.core.version>
-				<intelia.systems.invoiceplane.version>93.0.2</intelia.systems.invoiceplane.version>
+				<intelia.core.version>93.0.10</intelia.core.version>
+				<intelia.systems.invoiceplane.version>93.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>93.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>93.0.1</intelia.systems.skype.version>
 			</properties>
@@ -62,6 +63,11 @@
     </properties>
 
     <dependencies>
+    	<dependency>
+			<groupId>com.freedomoss.crowdcontrol</groupId>
+			<artifactId>workfusion-machine</artifactId>
+			<version>${workfusion.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito2</artifactId>

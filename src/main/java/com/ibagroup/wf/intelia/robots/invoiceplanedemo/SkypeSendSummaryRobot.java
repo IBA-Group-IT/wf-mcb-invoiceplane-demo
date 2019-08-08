@@ -11,7 +11,6 @@ import com.freedomoss.workfusion.utils.gson.GsonUtils;
 import com.google.gson.reflect.TypeToken;
 import com.ibagroup.wf.intelia.core.BindingUtils;
 import com.ibagroup.wf.intelia.core.CommonConstants;
-import com.ibagroup.wf.intelia.core.MachineTask;
 import com.ibagroup.wf.intelia.core.annotations.OnError;
 import com.ibagroup.wf.intelia.core.datastore.DataStoreQuery;
 import com.ibagroup.wf.intelia.core.mis.LoggableMethod;
@@ -49,7 +48,7 @@ public class SkypeSendSummaryRobot extends UiRobotCapabilities implements SkypeR
         String processGuid = BindingUtils.getWebHarvestTaskItem(getBinding()).getRun().getRootRunUuid();
 
         String successfullyPassedRecordsSQL =
-                "select * from @this where " + MachineTask.PROCESS_UUID + " = '" + processGuid + "'";
+                "select * from @this where PROCESS_UUID = '" + processGuid + "'";
 
         Optional<List<Map<String, String>>> records =
                 new DataStoreQuery(getBinding()).executeQuery(TrainingConstants.INVOICEPLANE_RECORDS_DS, successfullyPassedRecordsSQL).getSelectResultAsMapRows();

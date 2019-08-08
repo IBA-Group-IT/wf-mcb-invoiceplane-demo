@@ -9,14 +9,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
 import com.ibagroup.wf.intelia.core.CommonConstants;
 import com.ibagroup.wf.intelia.core.annotations.OnError;
 import com.ibagroup.wf.intelia.core.config.ConfigurationManager.Formatter;
+import com.ibagroup.wf.intelia.core.mis.LoggableDetail;
+import com.ibagroup.wf.intelia.core.mis.LoggableField;
+import com.ibagroup.wf.intelia.core.mis.LoggableMethod;
 import com.ibagroup.wf.intelia.core.robots.UiRobotCapabilities;
 import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
 import com.ibagroup.wf.intelia.core.security.SecurityUtils;
@@ -33,11 +33,14 @@ public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities implem
     private MainPage mainPage = null;
     private MenuNavigationBar menuNavigationBar = null;
 
+    @LoggableField
+    @LoggableDetail
     private List<ProductTO> products;
 
     private long startTime;
     private long endTime;
 
+    @LoggableMethod(module = "mymodule", operation = "perform")
     public String perform() {
         SecureEntryDtoWrapper credentials = new SecurityUtils(getBinding()).getSecureEntry("invoice_plane");
 
