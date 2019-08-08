@@ -10,6 +10,7 @@
 				<intelia.systems.invoiceplane.version>90.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>90.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>90.0.1</intelia.systems.skype.version>
+				<workfusion.version>9.0.0.7</workfusion.version>
 			</properties>
 		</profile>
 
@@ -20,6 +21,7 @@
 				<intelia.systems.invoiceplane.version>91.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>91.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>91.0.1</intelia.systems.skype.version>
+				<workfusion.version>9.1.0.5</workfusion.version>
 			</properties>
 		</profile>
 
@@ -44,13 +46,14 @@
 				<intelia.systems.invoiceplane.version>93.0.3</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>93.0.0</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>93.0.1</intelia.systems.skype.version>
+				<workfusion.version>9.3.0.0</workfusion.version>
 			</properties>
 		</profile>
 	</profiles>
 	
 	<groupId>com.ibagroup.wf</groupId>
     <artifactId>intelia-mcb-invoiceplane-demo</artifactId>
-    <version>0.0.0</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>Intelia InvoicePlane Demo project</name>
