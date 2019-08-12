@@ -6,10 +6,10 @@
 		<profile>
 			<id>wf90</id>
 			<properties>
-				<intelia.core.version>90.0.10</intelia.core.version>
-				<intelia.systems.invoiceplane.version>90.0.3</intelia.systems.invoiceplane.version>
-				<intelia.systems.google.search.version>90.0.0</intelia.systems.google.search.version>
-				<intelia.systems.skype.version>90.0.1</intelia.systems.skype.version>
+				<intelia.core.version>90.0.11</intelia.core.version>
+				<intelia.systems.invoiceplane.version>90.0.4</intelia.systems.invoiceplane.version>
+				<intelia.systems.google.search.version>90.0.1</intelia.systems.google.search.version>
+				<intelia.systems.skype.version>90.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.0.0.7</workfusion.version>
 			</properties>
 		</profile>
@@ -17,10 +17,10 @@
 		<profile>
 			<id>wf91</id>
 			<properties>
-				<intelia.core.version>91.0.10</intelia.core.version>
-				<intelia.systems.invoiceplane.version>91.0.3</intelia.systems.invoiceplane.version>
-				<intelia.systems.google.search.version>91.0.0</intelia.systems.google.search.version>
-				<intelia.systems.skype.version>91.0.1</intelia.systems.skype.version>
+				<intelia.core.version>91.0.11</intelia.core.version>
+				<intelia.systems.invoiceplane.version>91.0.4</intelia.systems.invoiceplane.version>
+				<intelia.systems.google.search.version>91.0.1</intelia.systems.google.search.version>
+				<intelia.systems.skype.version>91.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.1.0.5</workfusion.version>
 			</properties>
 		</profile>
@@ -31,10 +31,10 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<intelia.core.version>92.0.10</intelia.core.version>
-				<intelia.systems.invoiceplane.version>92.0.3</intelia.systems.invoiceplane.version>
-				<intelia.systems.google.search.version>92.0.0</intelia.systems.google.search.version>
-				<intelia.systems.skype.version>92.0.1</intelia.systems.skype.version>
+				<intelia.core.version>92.0.11</intelia.core.version>
+				<intelia.systems.invoiceplane.version>92.0.4</intelia.systems.invoiceplane.version>
+				<intelia.systems.google.search.version>92.0.1</intelia.systems.google.search.version>
+				<intelia.systems.skype.version>92.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.2.0.3</workfusion.version>
 			</properties>
 		</profile>
@@ -42,10 +42,10 @@
 		<profile>
 			<id>wf93</id>
 			<properties>
-				<intelia.core.version>93.0.10</intelia.core.version>
-				<intelia.systems.invoiceplane.version>93.0.3</intelia.systems.invoiceplane.version>
-				<intelia.systems.google.search.version>93.0.0</intelia.systems.google.search.version>
-				<intelia.systems.skype.version>93.0.1</intelia.systems.skype.version>
+				<intelia.core.version>93.0.11</intelia.core.version>
+				<intelia.systems.invoiceplane.version>93.0.4</intelia.systems.invoiceplane.version>
+				<intelia.systems.google.search.version>93.0.1</intelia.systems.google.search.version>
+				<intelia.systems.skype.version>93.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.3.0.0</workfusion.version>
 			</properties>
 		</profile>
@@ -53,7 +53,7 @@
 	
 	<groupId>com.ibagroup.wf</groupId>
     <artifactId>intelia-mcb-invoiceplane-demo</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>Intelia InvoicePlane Demo project</name>
@@ -70,16 +70,25 @@
 			<groupId>com.freedomoss.crowdcontrol</groupId>
 			<artifactId>workfusion-machine</artifactId>
 			<version>${workfusion.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+                <exclusion>
+                    <groupId>net.minidev</groupId>
+                    <artifactId>json-smart</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito2</artifactId>
 			<version>${powermock.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-module-junit4</artifactId>
 			<version>${powermock.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.ibagroup.wf</groupId>
@@ -233,14 +242,24 @@
 				</dependencies>
 			</plugin>
 
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <source>${project.build.javaVersion}</source>
-                    <target>${project.build.javaVersion}</target>
-                </configuration>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<executions>
+					<execution>
+						<id>compile-java</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<source>${project.build.javaVersion}</source>
+					<target>${project.build.javaVersion}</target>
+				</configuration>
+			</plugin>
 			<!--  plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
@@ -278,62 +297,29 @@
 				</executions>
 			</plugin -->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>unpack</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.ibagroup.wf</groupId>
-									<artifactId>intelia-core</artifactId>
-									<version>${intelia.framework.core.version}</version>
-									<type>jar</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/classes</outputDirectory>
-									<includes>**/*.class,**/*.xml</includes>
-									<excludes>**/*test.class,**/pom.xml</excludes>
-								</artifactItem>
-								<artifactItem>
-									<groupId>com.ibagroup.wf</groupId>
-									<artifactId>intelia-systems-invoiceplane</artifactId>
-									<version>${intelia.systems.invoiceplane.version}</version>
-									<type>jar</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/classes</outputDirectory>
-									<includes>**/*.class,**/*.xml</includes>
-									<excludes>**/*test.class,**/pom.xml</excludes>
-								</artifactItem>
-								<artifactItem>
-									<groupId>com.ibagroup.wf</groupId>
-									<artifactId>intelia-systems-google-search</artifactId>
-									<version>${intelia.systems.google.search.version}</version>
-									<type>jar</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/classes</outputDirectory>
-									<includes>**/*.class,**/*.xml</includes>
-									<excludes>**/*test.class,**/pom.xml</excludes>
-								</artifactItem>
-								<artifactItem>
-									<groupId>com.ibagroup.wf</groupId>
-									<artifactId>intelia-systems-skype</artifactId>
-									<version>${intelia.systems.skype.version}</version>
-									<type>jar</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${project.build.directory}/classes</outputDirectory>
-									<includes>**/*.class,**/*.xml</includes>
-									<excludes>**/*test.class,**/pom.xml</excludes>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 			
 			<plugin>
 			   <groupId>org.apache.maven.plugins</groupId>
