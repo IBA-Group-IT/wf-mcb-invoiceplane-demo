@@ -25,7 +25,7 @@ public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities {
     @LoggableMethod(module = "mymodule", operation = "perform")
     public String perform() {
         this.startTime = new Date().getTime();
-        products = getInstance(InvoicePlaneSystem.class).parseProducts();
+        products = getInjector().getInstance(InvoicePlaneSystem.class).parseProducts();
         this.endTime = new Date().getTime();
         return CommonConstants.SUCCESS_CLMN_PROCEED;
     }
