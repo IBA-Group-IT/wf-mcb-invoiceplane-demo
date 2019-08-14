@@ -7,7 +7,7 @@
 			<id>wf90</id>
 			<properties>
 				<intelia.core.version>90.0.13</intelia.core.version>
-				<intelia.systems.invoiceplane.version>90.0.5</intelia.systems.invoiceplane.version>
+				<intelia.systems.invoiceplane.version>90.0.6</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>90.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>90.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.0.0.7</workfusion.version>
@@ -18,7 +18,7 @@
 			<id>wf91</id>
 			<properties>
 				<intelia.core.version>91.0.13</intelia.core.version>
-				<intelia.systems.invoiceplane.version>91.0.5</intelia.systems.invoiceplane.version>
+				<intelia.systems.invoiceplane.version>91.0.6</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>91.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>91.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.1.0.5</workfusion.version>
@@ -32,7 +32,7 @@
 			</activation>
 			<properties>
 				<intelia.core.version>92.0.13</intelia.core.version>
-				<intelia.systems.invoiceplane.version>92.0.5</intelia.systems.invoiceplane.version>
+				<intelia.systems.invoiceplane.version>92.0.6</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>92.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>92.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.2.0.3</workfusion.version>
@@ -43,7 +43,7 @@
 			<id>wf93</id>
 			<properties>
 				<intelia.core.version>93.0.13</intelia.core.version>
-				<intelia.systems.invoiceplane.version>93.0.5</intelia.systems.invoiceplane.version>
+				<intelia.systems.invoiceplane.version>93.0.6</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>93.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>93.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.3.0.0</workfusion.version>
@@ -53,7 +53,7 @@
 	
 	<groupId>com.ibagroup.wf</groupId>
     <artifactId>intelia-mcb-invoiceplane-demo</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
 
     <name>Intelia InvoicePlane Demo project</name>
