@@ -1,8 +1,8 @@
 package com.ibagroup.wf.intelia.robots.invoiceplanedemo;
 
-import com.ibagroup.wf.intelia.core.BindingUtils;
 import com.ibagroup.wf.intelia.core.datastore.DataStoreQuery;
 import com.ibagroup.wf.intelia.core.robots.RobotCapabilities;
+import com.ibagroup.wf.intelia.core.utils.BindingUtils;
 
 public class WaitForAllRecords extends RobotCapabilities {
 

@@ -5,10 +5,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.freedomoss.workfusion.utils.gson.GsonUtils;
-import com.ibagroup.wf.intelia.core.BindingUtils;
 import com.ibagroup.wf.intelia.core.annotations.Wire;
 import com.ibagroup.wf.intelia.core.datastore.DataStoreInsert;
 import com.ibagroup.wf.intelia.core.robots.RobotCapabilities;
+import com.ibagroup.wf.intelia.core.utils.BindingUtils;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 public class SaveRecordToDS extends RobotCapabilities {

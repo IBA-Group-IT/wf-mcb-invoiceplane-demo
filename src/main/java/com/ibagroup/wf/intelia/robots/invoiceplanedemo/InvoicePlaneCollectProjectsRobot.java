@@ -1,37 +1,18 @@
 package com.ibagroup.wf.intelia.robots.invoiceplanedemo;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.ibagroup.wf.intelia.core.CommonConstants;
 import com.ibagroup.wf.intelia.core.annotations.OnError;
-import com.ibagroup.wf.intelia.core.config.ConfigurationManager.Formatter;
 import com.ibagroup.wf.intelia.core.mis.LoggableDetail;
 import com.ibagroup.wf.intelia.core.mis.LoggableField;
 import com.ibagroup.wf.intelia.core.mis.LoggableMethod;
 import com.ibagroup.wf.intelia.core.robots.UiRobotCapabilities;
-import com.ibagroup.wf.intelia.core.security.SecureEntryDtoWrapper;
-import com.ibagroup.wf.intelia.core.security.SecurityUtils;
-import com.ibagroup.wf.intelia.systems.invoiceplane.InvoicePlaneRobot;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MainPage;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.MenuNavigationBar;
-import com.ibagroup.wf.intelia.systems.invoiceplane.pages.ProductsPage;
+import com.ibagroup.wf.intelia.systems.invoiceplane.InvoicePlaneSystem;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
-public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities implements InvoicePlaneRobot {
-
-    private static final Logger logger = LoggerFactory.getLogger(InvoicePlaneCollectProjectsRobot.class);
-
-    private MainPage mainPage = null;
-    private MenuNavigationBar menuNavigationBar = null;
+public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities {
 
     @LoggableField
     @LoggableDetail
@@ -40,48 +21,24 @@ public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities implem
     private long startTime;
     private long endTime;
 
-    @LoggableMethod(module = "mymodule", operation = "perform")
-    public String perform() {
-        SecureEntryDtoWrapper credentials = new SecurityUtils(getBinding()).getSecureEntry("invoice_plane");
-
-        this.startTime = new Date().getTime();
-        initRobot(credentials);
-
-        int expectedProductsCount = getCfg().getConfigItem("products_count", 20, Formatter.INT).intValue();
-        // click Products -> View products
-        ProductsPage productsPage = getMenuNavigationBar().openProducts();
-        products = new ArrayList<ProductTO>();
-        while (true) {
-            products.addAll(productsPage.getProducts());
-            products = products.stream().filter(distinctByKey(p -> p.getProductName().toLowerCase())).collect(Collectors.toList());
-
-            if (products.size() > expectedProductsCount || !productsPage.nextPage()) {
-                break;
-            }
-        }
-        // leave only first 20 products
-        if (expectedProductsCount < products.size()) {
-            products.subList(expectedProductsCount, products.size()).clear();
-        }
-        logger.debug("Extracted products count: " + products.size());
-
-        finiliseRobot();
-        this.endTime = new Date().getTime();
-
-        return CommonConstants.SUCCESS_CLMN_PROCEED;
+    @LoggableMethod(module = "mymodule", operation = "criticalActivity")
+    public void someCriticalActivity() {
+        System.out.println("Some Critical Activity");
     }
 
-    private static <T> Predicate<T> distinctByKey(Function<? super T, Object> keyExtractor) {
-        Map<Object, Boolean> map = new ConcurrentHashMap<>();
-        return t -> map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+
+    @LoggableMethod(module = "mymodule", operation = "perform")
+    public String perform() {
+        this.startTime = new Date().getTime();
+        someCriticalActivity();
+        products = getInjector().getInstance(InvoicePlaneSystem.class).parseProducts();
+        this.endTime = new Date().getTime();
+        return CommonConstants.SUCCESS_CLMN_PROCEED;
     }
 
     @OnError
     public String handleError(Object self, Method thisMethod, Method proceed, Throwable throwable, Object[] args) {
-        finiliseRobot();
-
         this.endTime = new Date().getTime();
-
         return CommonConstants.SUCCESS_CLMN_FAILED;
     }
 
@@ -93,23 +50,5 @@ public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities implem
         return this.endTime - this.startTime;
     }
 
-    @Override
-    public MainPage getMainPage() {
-        return mainPage;
-    }
 
-    @Override
-    public void setMainPage(MainPage mainPage) {
-        this.mainPage = mainPage;
-    }
-
-    @Override
-    public MenuNavigationBar getMenuNavigationBar() {
-        return menuNavigationBar;
-    }
-
-    @Override
-    public void setMenuNavigationBar(MenuNavigationBar menuNavigationBar) {
-        this.menuNavigationBar = menuNavigationBar;
-    }
 }
