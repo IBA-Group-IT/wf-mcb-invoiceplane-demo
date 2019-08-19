@@ -5,19 +5,15 @@
 		import com.ibagroup.wf.intelia.core.Intelia;
 		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.InvoicePlaneCollectProjectsRobot;
 
-		InvoicePlaneCollectProjectsRobot robot = Intelia.init(binding).params(['rpa_config_ds': 'FrameworkTrainingConfig']).get().getInstance(InvoicePlaneCollectProjectsRobot.class);
-
-		sys.defineVariable("robot", robot, true);
+		robot = Intelia.init(binding).params(['rpa_config_ds': 'FrameworkTrainingConfig']).get().getInstance(InvoicePlaneCollectProjectsRobot.class);
 	]]></script>
 
 	<robotics-flow>
 		<robot name="seleniumDriver" driver="chrome" close-on-completion="true" start-in-private="true">
 			<script><![CDATA[
-		        sys.defineVariable("success_result", robot.getWrappedObject().perform());
-
-				products = robot.getWrappedObject().getProducts();
-				sys.defineVariable("products", products, true);
-				sys.defineVariable("total_records_count", products != null ? products.size() : 0, true);
+		        success_result = robot.perform();
+				products = robot.getProducts();
+				total_records_count =  products != null ? products.size() : 0;
 			]]></script>
 		</robot>
 	</robotics-flow>
@@ -27,7 +23,7 @@
 		<case>
 			<if condition="${com.ibagroup.wf.intelia.core.CommonConstants.SUCCESS_CLMN_FAILED.equals(success_result.toString())}">
 				<single-column name="last_error" value="Technical error on InvoicePlaneCollectProjects step." />
-				<single-column name="last_error_message" value="${robot.getWrappedObject().getExceptionHandler().getLastErrorMessage()}" />
+				<single-column name="last_error_message" value="${robot.getExceptionHandler().getLastErrorMessage()}" />
 			</if>
 			<else>
 				<multi-column list="${products}" split-results="true">
@@ -36,7 +32,7 @@
 		        </multi-column>
 
 				<single-column name="${com.ibagroup.wf.intelia.robots.invoiceplanedemo.TrainingConstants.INVOICEPLANE_RPA_DURATION}"
-					value="${robot.getWrappedObject().getRpaDuration()}" />
+					value="${robot.getRpaDuration()}" />
 				<single-column name="${com.ibagroup.wf.intelia.robots.invoiceplanedemo.TrainingConstants.TOTAL_PRODUCTS_COUNT}"
 					value="${total_records_count}" />
 			</else>
