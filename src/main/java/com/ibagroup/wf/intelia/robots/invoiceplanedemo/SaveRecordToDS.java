@@ -1,43 +1,30 @@
 package com.ibagroup.wf.intelia.robots.invoiceplanedemo;
 
-import java.util.HashMap;
-import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.freedomoss.workfusion.utils.gson.GsonUtils;
+import javax.inject.Inject;
 import com.ibagroup.wf.intelia.core.annotations.Wire;
-import com.ibagroup.wf.intelia.core.datastore.DataStoreInsert;
 import com.ibagroup.wf.intelia.core.robots.RobotCapabilities;
-import com.ibagroup.wf.intelia.core.utils.BindingUtils;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 public class SaveRecordToDS extends RobotCapabilities {
 
-	private static final Logger logger = LoggerFactory.getLogger(SaveRecordToDS.class);
-
     @Wire(name = TrainingConstants.PRODUCT_JSON)
-    private String productJson;
+    private ProductTO productTO;
 
-	private Map<String, String> inputAsMap;
+    @Wire(name = TrainingConstants.GOOGLESEARCH_RPA_DURATION)
+    private String googlesearchRpaDuration;
 
-	public Map<String, String> perform() {
-        String processGuid = BindingUtils.getWebHarvestTaskItem(getBinding()).getRun().getRootRunUuid();
-        logger.info("processGuid: " + processGuid);
+    @Wire(name = TrainingConstants.INVOICEPLANE_RPA_DURATION)
+    private String invoiceplaneRpaDuration;
 
-	    inputAsMap = BindingUtils.getInputAsMap(getBinding(), null);
+    @Wire(name = TrainingConstants.PRODUCT_RESULT_JSON)
+    private String productResultJson;
 
-        ProductTO productTO = GsonUtils.GSON.<ProductTO>fromJson(productJson, ProductTO.class);
 
-        Map<String, String> rowsMap = new HashMap<>();
-        rowsMap.put("PROCESS_UUID", processGuid);
-        rowsMap.put(TrainingConstants.GOOGLESEARCH_RPA_DURATION, inputAsMap.get(TrainingConstants.GOOGLESEARCH_RPA_DURATION));
-        rowsMap.put(TrainingConstants.INVOICEPLANE_RPA_DURATION, inputAsMap.get(TrainingConstants.INVOICEPLANE_RPA_DURATION));
-        rowsMap.put(TrainingConstants.PRODUCT_RESULT_JSON, inputAsMap.get(TrainingConstants.PRODUCT_RESULT_JSON));
-        rowsMap.put(TrainingConstants.PRODUCT_NAME, productTO.getProductName());
+    @Inject
+    private InvoicePlaneRecordsDS invoicePlaneRecordsDS;
 
-		DataStoreInsert dsInsert = new DataStoreInsert(getBinding());
-		dsInsert.insertRow(TrainingConstants.INVOICEPLANE_RECORDS_DS, rowsMap);
-
-        return rowsMap;
+    public void perform() {
+        String processGuid = getFlowContext().getProcessGuid();
+        invoicePlaneRecordsDS.addProductDetails(processGuid, productTO.getProductName(), googlesearchRpaDuration, invoiceplaneRpaDuration, productResultJson);
 	}
 }

@@ -3,7 +3,7 @@
 
 	<script><![CDATA[
 		import com.ibagroup.wf.intelia.core.robots.factory.MachineTaskRobotFactory;
-		import com.ibagroup.workfusion.rpa.robots.frameworktraining.GoogleSearchCollectProductSummaryRobot;
+		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.GoogleSearchCollectProductSummaryRobot;
 
 		GoogleSearchCollectProductSummaryRobot runner = new MachineTaskRobotFactory(binding, "FrameworkTrainingConfig").build().newInstance(GoogleSearchCollectProductSummaryRobot.class);
 
@@ -26,9 +26,9 @@
 				<single-column name="last_error_message" value="${runner.getWrappedObject().getExceptionHandler().getLastErrorMessage()}" />
 			</if>
 			<else>
-				<single-column name="${com.ibagroup.workfusion.rpa.robots.frameworktraining.TrainingConstants.PRODUCT_RESULT_JSON}"
+				<single-column name="${com.ibagroup.wf.intelia.robots.invoiceplanedemo.TrainingConstants.PRODUCT_RESULT_JSON}"
 					value="${runner.getWrappedObject().getResultJson()}" />
-				<single-column name="${com.ibagroup.workfusion.rpa.robots.frameworktraining.TrainingConstants.GOOGLESEARCH_RPA_DURATION}"
+				<single-column name="${com.ibagroup.wf.intelia.robots.invoiceplanedemo.TrainingConstants.GOOGLESEARCH_RPA_DURATION}"
 					value="${runner.getWrappedObject().getRpaDuration()}" />
 			</else>
 		</case>
