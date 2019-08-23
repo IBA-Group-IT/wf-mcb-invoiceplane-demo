@@ -22,13 +22,13 @@ public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities {
     private long startTime;
     private long endTime;
 
-    @LoggableMethod(module = "mymodule", operation = "criticalActivity")
+    @LoggableMethod(module = "InvoicePlaneCollectProjects", operation = "criticalActivity")
     public void someCriticalActivity() {
         System.out.println("Some Critical Activity");
     }
 
 
-    @LoggableMethod(module = "mymodule", operation = "perform")
+    @LoggableMethod(module = "InvoicePlaneCollectProjects", operation = "perform")
     public String perform() {
         this.startTime = new Date().getTime();
         someCriticalActivity();

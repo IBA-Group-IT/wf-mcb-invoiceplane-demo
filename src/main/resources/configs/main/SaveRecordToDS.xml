@@ -5,7 +5,7 @@
 		import static com.ibagroup.wf.intelia.core.Intelia.*;
 		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.SaveRecordToDS;
 
-		defaultInteliaSetup(binding,'FrameworkTrainingConfig').getInstance(SaveRecordToDS.class);
+		defaultInteliaSetup(binding,'FrameworkTrainingConfig').getInstance(SaveRecordToDS.class).perform();
 
 	]]></script>
 

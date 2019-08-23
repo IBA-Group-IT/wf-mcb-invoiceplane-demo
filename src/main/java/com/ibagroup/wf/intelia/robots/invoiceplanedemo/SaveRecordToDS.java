@@ -2,11 +2,16 @@ package com.ibagroup.wf.intelia.robots.invoiceplanedemo;
 
 import javax.inject.Inject;
 import com.ibagroup.wf.intelia.core.annotations.Wire;
+import com.ibagroup.wf.intelia.core.mis.LoggableDetail;
+import com.ibagroup.wf.intelia.core.mis.LoggableField;
+import com.ibagroup.wf.intelia.core.mis.LoggableMethod;
 import com.ibagroup.wf.intelia.core.robots.RobotCapabilities;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 public class SaveRecordToDS extends RobotCapabilities {
 
+    @LoggableDetail()
+    @LoggableField()
     @Wire(name = TrainingConstants.PRODUCT_JSON)
     private ProductTO productTO;
 
@@ -23,6 +28,7 @@ public class SaveRecordToDS extends RobotCapabilities {
     @Inject
     private InvoicePlaneRecordsDS invoicePlaneRecordsDS;
 
+    @LoggableMethod(module = "SaveRecordToDS", operation = "perform")
     public void perform() {
         String processGuid = getFlowContext().getProcessGuid();
         invoicePlaneRecordsDS.addProductDetails(processGuid, productTO.getProductName(), googlesearchRpaDuration, invoiceplaneRpaDuration, productResultJson);
