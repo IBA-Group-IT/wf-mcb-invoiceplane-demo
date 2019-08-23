@@ -6,8 +6,8 @@
 		<profile>
 			<id>wf90</id>
 			<properties>
-				<intelia.core.version>90.0.14</intelia.core.version>
-				<intelia.systems.invoiceplane.version>90.0.7</intelia.systems.invoiceplane.version>
+				<intelia.core.version>90.0.17</intelia.core.version>
+				<intelia.systems.invoiceplane.version>90.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>90.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>90.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.0.0.7</workfusion.version>
@@ -17,8 +17,8 @@
 		<profile>
 			<id>wf91</id>
 			<properties>
-				<intelia.core.version>91.0.14</intelia.core.version>
-				<intelia.systems.invoiceplane.version>91.0.7</intelia.systems.invoiceplane.version>
+				<intelia.core.version>91.0.17</intelia.core.version>
+				<intelia.systems.invoiceplane.version>91.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>91.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>91.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.1.0.5</workfusion.version>
@@ -31,8 +31,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<intelia.core.version>92.0.14</intelia.core.version>
-				<intelia.systems.invoiceplane.version>92.0.7</intelia.systems.invoiceplane.version>
+				<intelia.core.version>92.0.17</intelia.core.version>
+				<intelia.systems.invoiceplane.version>92.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>92.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>92.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.2.0.3</workfusion.version>
@@ -42,8 +42,8 @@
 		<profile>
 			<id>wf93</id>
 			<properties>
-				<intelia.core.version>93.0.14</intelia.core.version>
-				<intelia.systems.invoiceplane.version>93.0.7</intelia.systems.invoiceplane.version>
+				<intelia.core.version>93.0.17</intelia.core.version>
+				<intelia.systems.invoiceplane.version>93.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>93.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>93.0.2</intelia.systems.skype.version>
 				<workfusion.version>9.3.0.0</workfusion.version>

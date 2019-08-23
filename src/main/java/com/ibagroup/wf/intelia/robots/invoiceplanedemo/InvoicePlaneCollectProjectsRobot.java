@@ -8,14 +8,15 @@ import com.ibagroup.wf.intelia.core.annotations.OnError;
 import com.ibagroup.wf.intelia.core.mis.LoggableDetail;
 import com.ibagroup.wf.intelia.core.mis.LoggableField;
 import com.ibagroup.wf.intelia.core.mis.LoggableMethod;
+import com.ibagroup.wf.intelia.core.mis.LoggingPhase;
 import com.ibagroup.wf.intelia.core.robots.UiRobotCapabilities;
 import com.ibagroup.wf.intelia.systems.invoiceplane.InvoicePlaneSystem;
 import com.ibagroup.wf.intelia.systems.invoiceplane.to.ProductTO;
 
 public class InvoicePlaneCollectProjectsRobot extends UiRobotCapabilities {
 
-    @LoggableField
-    @LoggableDetail
+    @LoggableField(phase = LoggingPhase.ONCOMPLETION)
+    @LoggableDetail(name = "products")
     private List<ProductTO> products;
 
     private long startTime;
