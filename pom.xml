@@ -266,5 +266,22 @@
 			<url>${mcb.repo.url}</url>
 		</repository>
 	</distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>local-nexus</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>jboss-snapshot</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+	</repositories>
 
 </project>
