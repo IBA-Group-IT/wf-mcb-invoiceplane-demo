@@ -270,7 +270,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://ewa7.itd.iba.by/nexus/repository/maven-public</url>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
 		<repository>
 			<!-- WF machine build's dependencies fix -->
