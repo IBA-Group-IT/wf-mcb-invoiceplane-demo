@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" scriptlang="groovy">
+
+	<script><![CDATA[
+		import com.ibagroup.wf.intelia.core.Intelia;
+		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.AlternativeSaveRecordToDS;
+
+		Intelia.init(binding).defaultSetup().configFromDatastore('FrameworkTrainingConfig').defaultDatastore('invoiceplane_records').get().getInstance(AlternativeSaveRecordToDS.class).perform();
+
+	]]></script>
+
+	<export include-original-data="true">
+	</export>
+
+</config>

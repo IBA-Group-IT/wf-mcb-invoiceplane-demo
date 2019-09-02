@@ -15,12 +15,7 @@ public class InvoicePlaneRecordsDS extends BaseDS {
 
     @Inject
     public InvoicePlaneRecordsDS(FlowContext flowContext) {
-        super(flowContext);
-    }
-
-    @Override
-    public String getDSName() {
-        return TrainingConstants.INVOICEPLANE_RECORDS_DS;
+        super(flowContext, TrainingConstants.INVOICEPLANE_RECORDS_DS);
     }
 
     public void addProductDetails(String processUuid, String productName, String googlesearchRpaDuration, String invoicePlaneRpaDuration, String productResultJson) {
