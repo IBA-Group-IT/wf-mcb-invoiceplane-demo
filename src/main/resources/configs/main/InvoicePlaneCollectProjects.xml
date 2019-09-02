@@ -2,10 +2,10 @@
 <config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" charset="UTF-8" scriptlang="groovy">
 
 	<script><![CDATA[
-		import static com.ibagroup.wf.intelia.core.Intelia.*;
+		import static com.ibagroup.wf.invoiceplanedemo.InvoicePlaneDemo.*;
 		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.InvoicePlaneCollectProjectsRobot;
 
-		robot = defaultInteliaSetup(binding,'FrameworkTrainingConfig').getInstance(InvoicePlaneCollectProjectsRobot.class);
+		robot = defaultDemoSetup(binding).getInstance(InvoicePlaneCollectProjectsRobot.class);
 	]]></script>
 
 	<robotics-flow>

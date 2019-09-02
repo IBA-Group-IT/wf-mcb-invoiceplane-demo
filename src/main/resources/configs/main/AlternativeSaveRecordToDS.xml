@@ -2,10 +2,10 @@
 <config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" scriptlang="groovy">
 
 	<script><![CDATA[
-		import com.ibagroup.wf.intelia.core.Intelia;
+		import com.ibagroup.wf.invoiceplanedemo.InvoicePlaneDemo;
 		import com.ibagroup.wf.intelia.robots.invoiceplanedemo.AlternativeSaveRecordToDS;
 
-		Intelia.init(binding).defaultSetup().configFromDatastore('FrameworkTrainingConfig').defaultDatastore('invoiceplane_records').get().getInstance(AlternativeSaveRecordToDS.class).perform();
+		InvoicePlaneDemo.defaultDemoSetup(binding).getInstance(AlternativeSaveRecordToDS.class).perform();
 
 	]]></script>
 
