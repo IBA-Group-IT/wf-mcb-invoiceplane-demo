@@ -6,7 +6,7 @@
 		<profile>
 			<id>wf90</id>
 			<properties>
-				<intelia.core.version>90.0.20</intelia.core.version>
+				<intelia.core.version>90.0.24</intelia.core.version>
 				<intelia.systems.invoiceplane.version>90.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>90.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>90.0.2</intelia.systems.skype.version>
@@ -17,7 +17,7 @@
 		<profile>
 			<id>wf91</id>
 			<properties>
-				<intelia.core.version>91.0.20</intelia.core.version>
+				<intelia.core.version>91.0.24</intelia.core.version>
 				<intelia.systems.invoiceplane.version>91.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>91.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>91.0.2</intelia.systems.skype.version>
@@ -31,7 +31,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<intelia.core.version>92.0.20</intelia.core.version>
+				<intelia.core.version>92.0.24</intelia.core.version>
 				<intelia.systems.invoiceplane.version>92.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>92.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>92.0.2</intelia.systems.skype.version>
@@ -42,7 +42,7 @@
 		<profile>
 			<id>wf93</id>
 			<properties>
-				<intelia.core.version>93.0.20</intelia.core.version>
+				<intelia.core.version>93.0.24</intelia.core.version>
 				<intelia.systems.invoiceplane.version>93.0.8</intelia.systems.invoiceplane.version>
 				<intelia.systems.google.search.version>93.0.1</intelia.systems.google.search.version>
 				<intelia.systems.skype.version>93.0.2</intelia.systems.skype.version>
